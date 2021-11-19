@@ -78,7 +78,7 @@ class AnnonceController extends Controller
         $annonce->prix_annonce = $request->input('prix_annonce');
         $annonce->nombre_de_piece = $request->input('nombre_de_piece');
         $annonce->save();
-
+        
         return redirect()->route('browse');
     }
 
