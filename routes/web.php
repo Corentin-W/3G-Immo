@@ -3,6 +3,7 @@
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\OrderController;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Route pour la page d'accueil
-Route::get('/home', [AnnonceController::class, 'browse'])->name('browse');
+Route::get('/', [AnnonceController::class, 'browse'])->name('browse');
 
 //Routes pour le CRUD des annonces
 //Je préfixe les routes pour qu'elles démarrent toutes par annonce/
@@ -40,13 +41,18 @@ Route::prefix('order/')->group(function(){
     Route::get('rooms/{order}', [OrderController::class, 'orderRooms'])->name('order-by-rooms');
 });
 
-Route::get('/', function () {
-    return view('main.welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('logout', function ()
+{
+    auth()->logout();
+    Session()->flush();
+
+    return Redirect::to('/login');
+})->name('logout');
 
 require __DIR__.'/auth.php';
 
