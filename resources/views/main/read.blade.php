@@ -11,4 +11,7 @@
     </div>
   </div>
   <a href="{{route('browse')}}" class="btn btn-primary">Retour au menu</a>
+
+
+  
 @endsection

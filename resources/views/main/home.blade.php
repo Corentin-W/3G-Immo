@@ -1,8 +1,6 @@
 @extends('base')
 @section('content')
-<div class="btn btn-primary  m-2">
-    <a href="{{route('create')}}">Ajout d'une nouvelle annonce</a>
-</div>
+<div class="text-center mt-4 mb-4">
 <em>Date
     <a href="{{route('order-by-date', 'asc')}}">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
@@ -51,23 +49,34 @@
           </svg>
     </a>
 </em>
-<div class="card-group">
-    @foreach ($annonces as $annonce)
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://www.eci-immobilier.fr/sites/default/files/styles/diaporama/public/p1800153.jpg?itok=DnycDw4j" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Ref: {{$annonce->ref_annonce}}</h5>
-                <p class="card-text">Prix: {{$annonce->prix_annonce}}€</p>
-                <p class="card-text">Surface: {{$annonce->surface_habitable}} m2</p>
-                <p class="card-text"> {{$annonce->nombre_de_piece}} pièces</p>
-                <p class="card-text">Agent: <a href="{{route('agent-detail', $annonce->agent->id)}}">{{$annonce->agent->prenom_agent}} {{$annonce->agent->nom_agent}}</a></p>
-                <a href="{{route('read', $annonce->id)}}" class="btn btn-primary">Voir</a>
-                <a href="{{route('edit', $annonce->id)}}" class="btn btn-success">Editer</a>
-                <a href="{{route('delete', $annonce->id)}}" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?');">Supprimer</a>
-            </div>
-    </div>
-    @endforeach
 </div>
-{{$annonces->links()}}
+
+<div class="section">
+    <div class="container">
+        <div class="row flex-row-stretch">
+            @foreach ($annonces as $annonce)
+            <div class="col-sm-6 col-md-4 col-lg-3 flex-col">
+                <div class="card">
+                    <img class="card-img-top" src="https://www.eci-immobilier.fr/sites/default/files/styles/diaporama/public/p1800153.jpg?itok=DnycDw4j" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"> <a href="{{route('read', $annonce->id)}}">Ref: {{$annonce->ref_annonce}}</a></h5>
+                        <p class="card-text">Prix: {{$annonce->prix_annonce}}€</p>
+                        <p class="card-text">Surface: {{$annonce->surface_habitable}} m2</p>
+                        <p class="card-text"> {{$annonce->nombre_de_piece}} pièces</p>
+                        <p class="card-text">Agent: <a href="{{route('agent-detail', $annonce->agent->id)}}">{{$annonce->agent->prenom_agent}} {{$annonce->agent->nom_agent}}</a></p>
+                        <a href="{{route('read', $annonce->id)}}" class="btn btn-primary">Voir</a>
+                        <a href="{{route('edit', $annonce->id)}}" class="btn btn-success">Editer</a>
+                        <a href="{{route('delete', $annonce->id)}}" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?');">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        {{$annonces->links()}}
+    </div>
+</div>
+
 @endsection
+
+
 

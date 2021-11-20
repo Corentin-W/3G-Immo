@@ -12,10 +12,10 @@ class AnnonceController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function browse()
     {
-        $annonces = Annonce::orderBy("created_at", "asc")->paginate(6);
+        $annonces = Annonce::orderBy("created_at", "asc")->paginate(8);
         return view('main.home', [
             'annonces' => $annonces
         ]);

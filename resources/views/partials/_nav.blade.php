@@ -10,10 +10,12 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('browse')}}">Accueil</a>
           </li>
-          @auth
-          <li class="nav-item "><a class="btn btn-danger" href="{{route('logout')}}">Deconnexion</a></li>
-          @endauth
         </ul>
       </div>
+      <a class="btn btn-info m-3 " href="{{route('create')}}">Ajout d'une nouvelle annonce</a>
+        @auth
+            <a class="btn btn-danger" href="{{route('logout')}}">Deconnexion</a>
+        @endauth
+
     </div>
   </nav>
