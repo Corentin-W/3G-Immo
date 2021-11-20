@@ -17,7 +17,7 @@ class OrderController extends Controller
      */
     public function orderDate($order)
     {
-        $annonces = Annonce::orderBy("created_at", $order)->paginate(6);
+        $annonces = Annonce::orderBy("created_at", $order)->paginate(8);
         return view('main.home', [
             'annonces' => $annonces
         ]);
@@ -28,7 +28,7 @@ class OrderController extends Controller
      */
     public function orderPrice($order)
     {
-        $annonces = Annonce::orderBy("prix_annonce", $order)->paginate(6);
+        $annonces = Annonce::orderBy("prix_annonce", $order)->paginate(8);
         return view('main.home', [
             'annonces' => $annonces
         ]);
@@ -39,7 +39,7 @@ class OrderController extends Controller
      */
     public function orderSurface($order)
     {
-        $annonces = Annonce::orderBy("surface_habitable", $order)->paginate(6);
+        $annonces = Annonce::orderBy("surface_habitable", $order)->paginate(8);
         return view('main.home', [
             'annonces' => $annonces
         ]);
@@ -50,7 +50,7 @@ class OrderController extends Controller
      */
     public function orderRooms($order)
     {
-        $annonces = Annonce::orderBy("nombre_de_piece", $order)->paginate(6);
+        $annonces = Annonce::orderBy("nombre_de_piece", $order)->paginate(8);
         return view('main.home', [
             'annonces' => $annonces
         ]);
