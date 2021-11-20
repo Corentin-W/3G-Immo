@@ -35,13 +35,17 @@ class AnnonceController extends Controller
     public function add(Request $request)
     {
         $request->validate([
-            'ref_annonce' => 'required',
-            'prix_annonce' => 'required',
-            'surface_habitable' => 'required',
-            'nombre_de_piece' => 'required',
-            'agent' => 'required'
+            'ref_annonce' => ['required','min:8','max:8','unique:annonces'],
+            'prix_annonce' => ['required'],
+            'surface_habitable' => ['required'],
+            'nombre_de_piece' => ['required'],
+            'agent' => ['required']
         ]);
 
+        //I check if the route is still the good one
+        if(!$request->routeIs('add')){
+            return redirect()->route('browse');
+        };
         $annonce = new Annonce();
         $annonce->ref_annonce = $request->input('ref_annonce');
         $annonce->surface_habitable = $request->input('surface_habitable');
@@ -66,10 +70,10 @@ class AnnonceController extends Controller
     public function update($id, Request $request)
     {
         $request->validate([
-            'ref_annonce' => 'required',
-            'prix_annonce' => 'required',
-            'surface_habitable' => 'required',
-            'nombre_de_piece' => 'required',
+            'ref_annonce' => ['required','min:8','max:8'],
+            'prix_annonce' => ['required'],
+            'surface_habitable' => ['required'],
+            'nombre_de_piece' => ['required'],
         ]);
 
         $annonce = Annonce::find($id);
@@ -78,7 +82,7 @@ class AnnonceController extends Controller
         $annonce->prix_annonce = $request->input('prix_annonce');
         $annonce->nombre_de_piece = $request->input('nombre_de_piece');
         $annonce->save();
-        
+
         return redirect()->route('browse');
     }
 

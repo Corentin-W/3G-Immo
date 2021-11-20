@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Route pour la page d'accueil
-Route::get('/', [AnnonceController::class, 'browse'])->name('browse');
+Route::get('/home', [AnnonceController::class, 'browse'])->name('browse');
 
 //Routes pour le CRUD des annonces
 //Je préfixe les routes pour qu'elles démarrent toutes par annonce/
@@ -39,4 +39,15 @@ Route::prefix('order/')->group(function(){
     Route::get('surface/{order}', [OrderController::class, 'orderSurface'])->name('order-by-surface');
     Route::get('rooms/{order}', [OrderController::class, 'orderRooms'])->name('order-by-rooms');
 });
+
+Route::get('/', function () {
+    return view('main.welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 

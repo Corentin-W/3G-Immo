@@ -21,7 +21,7 @@
         </div>
         <div class="form-group">
             <label for="prix_annonce">Prix en Euros</label>
-            <input type="number" class="form-control"  placeholder="400000" name="prix_annonce">
+            <input type="number" step="0.01" class="form-control"  placeholder="400000" name="prix_annonce">
         </div>
         <div class="form-group">
         <label for="surface_habitable">Surface habitable en m2</label>
