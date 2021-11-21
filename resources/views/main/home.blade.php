@@ -61,7 +61,9 @@
             </div>
             @endforeach
         </div>
+        <div class=" d-flex justify-content-center mt-3">
         {{$annonces->links()}}
+        </div>
     </div>
 </div>
 

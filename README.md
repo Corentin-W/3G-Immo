@@ -37,3 +37,24 @@ La table AGENT compotera les éléments suivants =
 
 ![Screenshot](/Documentation/mocodo.png)
 
+## Technologies 
+
+- PHP
+- Laravel 8
+- HTML
+- CSS
+- Bootstrap 5.1
+- JavaScript
+
+### Comment procéder ?
+
+Pour démarrer ce projet il faut =
+- Cloner ce projet
+- Lancer la commande ` composer install`
+- Créer un fichier `.env` et saisir vos informations de base de donnée (pour `DB_USERNAME` `DB_PASSWORD`)
+- Verifier que dans le fichier `.env` , le `APP_ENV` est en local
+- Lancer la commande `php artisan migrate`
+- Importer le fichier sql dans votre adminer
+- Lancer la commande `php artisan key:generate`
+- Ouvrir votre serveur local
+

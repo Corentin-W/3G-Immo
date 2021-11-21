@@ -163,3 +163,12 @@ button .arrow {
     margin: 70px auto;
 }
 
+/**
+* Style for falsh messages
+*/
+.alert {
+    width: 20%;
+    margin: 0 auto;
+    text-align: center;
+}
+
