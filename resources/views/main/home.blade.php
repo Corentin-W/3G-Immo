@@ -52,14 +52,14 @@
 </div>
 
 <div class="section">
-    <div class="container">
+    <div class="card-grid">
         <div class="row flex-row-stretch">
             @foreach ($annonces as $annonce)
             <div class="col-sm-6 col-md-4 col-lg-3 flex-col">
                 <div class="card">
                     <img class="card-img-top" src="https://www.eci-immobilier.fr/sites/default/files/styles/diaporama/public/p1800153.jpg?itok=DnycDw4j" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title"> <a href="{{route('read', $annonce->id)}}">Ref: {{$annonce->ref_annonce}}</a></h5>
+                        <h5 class="card-title">Référence: {{$annonce->ref_annonce}}</h5>
                         <p class="card-text">Prix: {{$annonce->prix_annonce}}€</p>
                         <p class="card-text">Surface: {{$annonce->surface_habitable}} m2</p>
                         <p class="card-text"> {{$annonce->nombre_de_piece}} pièces</p>

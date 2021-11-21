@@ -59,7 +59,7 @@ class AnnonceController extends Controller
         $annonce->agent_id = $request->input("agent");
         $annonce->save();
 
-        return redirect()->route('browse');
+        return redirect()->route('browse')->with('success','Annonce ajoutée');
     }
 
     public function edit($id)
@@ -87,8 +87,7 @@ class AnnonceController extends Controller
         $annonce->prix_annonce = $request->input('prix_annonce');
         $annonce->nombre_de_piece = $request->input('nombre_de_piece');
         $annonce->save();
-
-        return redirect()->route('browse');
+        return redirect()->route('browse')->with('success','Annonce éditée');
     }
 
     public function delete($id)

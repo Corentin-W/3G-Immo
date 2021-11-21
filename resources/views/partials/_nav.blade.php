@@ -12,10 +12,9 @@
           </li>
         </ul>
       </div>
-      <a class="btn btn-info m-3 " href="{{route('create')}}">Ajout d'une nouvelle annonce</a>
-        @auth
-            <a class="btn btn-danger" href="{{route('logout')}}">Deconnexion</a>
-        @endauth
-
+      @auth
+        <a class="btn btn-info m-3 " href="{{route('create')}}">Ajout d'une nouvelle annonce</a>
+        <a class="btn btn-danger" href="{{route('logout')}}">Deconnexion</a>
+      @endauth
     </div>
   </nav>
