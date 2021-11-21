@@ -12,7 +12,6 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    font-family: sans-serif;
 }
 
 /*
@@ -21,6 +20,14 @@ body {
 .card-grid {
     margin: auto;
     width: 70%;
+}
+
+/*
+* Style for dropdown menu
+*/
+.order__menu {
+    display: flex;
+    height: 7vh;
 }
 
 /*

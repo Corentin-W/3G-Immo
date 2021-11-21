@@ -37,8 +37,11 @@ Route::prefix('order/')->group(function(){
     Route::get('rooms/{order}', [OrderController::class, 'orderRooms'])->name('order-by-rooms');
 });
 
-//Route for the agent's ads
-Route::get('agent/detail/{id}', [AgentController::class, 'agentDetail'])->name('agent-detail');
+//Route for the agent's
+Route::prefix('agent/')->group(function(){
+    Route::get('detail/{id}', [AgentController::class, 'agentDetail'])->name('agent-detail');
+    Route::get('list', [AgentController::class, 'agentList'])->name('agents-list');
+});
 
 // Routes for the authentification
 Route::get('/dashboard', function () {

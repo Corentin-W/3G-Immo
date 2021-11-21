@@ -65,10 +65,13 @@ class AnnonceController extends Controller
     public function edit($id)
     {
         $annonce = Annonce::find($id);
-        $agent = $annonce->agent_id;
+        $agentId = $annonce->agent_id;
+        $agentOwner = Agent::find($agentId);
+        $agents = Agent::all();
         return view('main.edit', [
             'annonce' => $annonce,
-            'agent' => $agent
+            'agentOwner' => $agentOwner,
+            'agents' => $agents
         ]);
     }
 
@@ -86,6 +89,7 @@ class AnnonceController extends Controller
         $annonce->surface_habitable = $request->input('surface_habitable');
         $annonce->prix_annonce = $request->input('prix_annonce');
         $annonce->nombre_de_piece = $request->input('nombre_de_piece');
+        $annonce->agent_id = $request->input("agent");
         $annonce->save();
         return redirect()->route('browse')->with('success','Annonce éditée');
     }
