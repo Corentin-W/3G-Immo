@@ -139,6 +139,16 @@ button .arrow {
 /*
 * Style for authentificatio pages
 */
+.form__content {
+    width: 14%;
+    margin: 35px auto;
+    box-shadow: 0 15px 35px #3232321a, 0 5px 15px #0000001a;
+}
+
+.form__body {
+    padding: 15px;
+}
+
 .form__container {
     padding: 2vh;
     margin: 150px auto;
