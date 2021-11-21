@@ -16,11 +16,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route pour la page d'accueil
+//Home page route
 Route::get('/', [AnnonceController::class, 'browse'])->name('browse');
 
-//Routes pour le CRUD des annonces
-//Je préfixe les routes pour qu'elles démarrent toutes par annonce/
+//Routes for the CRUD
 Route::prefix('annonce/')->group(function(){
     Route::get('read/{id}', [AnnonceController::class, 'read'])->name('read');
     Route::get('create', [AnnonceController::class, 'create'])->name('create');
@@ -30,10 +29,7 @@ Route::prefix('annonce/')->group(function(){
     Route::get('delete/{id}', [AnnonceController::class, 'delete'])->name('delete');
 });
 
-//Route pour les annonces d'un agent
-Route::get('agent/detail/{id}', [AgentController::class, 'agentDetail'])->name('agent-detail');
-
-
+//Routes for the home page order
 Route::prefix('order/')->group(function(){
     Route::get('date/{order}', [OrderController::class, 'orderDate'])->name('order-by-date');
     Route::get('price/{order}', [OrderController::class, 'orderPrice'])->name('order-by-price');
@@ -41,11 +37,16 @@ Route::prefix('order/')->group(function(){
     Route::get('rooms/{order}', [OrderController::class, 'orderRooms'])->name('order-by-rooms');
 });
 
+//Route for the agent's
+Route::prefix('agent/')->group(function(){
+    Route::get('detail/{id}', [AgentController::class, 'agentDetail'])->name('agent-detail');
+    Route::get('list', [AgentController::class, 'agentList'])->name('agents-list');
+});
 
+// Routes for the authentification
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
 Route::get('logout', function ()
 {
     auth()->logout();

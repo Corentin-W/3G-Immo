@@ -8,7 +8,7 @@
                 <th scope="col">Prix</th>
                 <th scope="col">Surface</th>
                 <th scope="col">Pièces</th>
-                <th scope="col">Action</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
