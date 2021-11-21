@@ -30,4 +30,11 @@ const moveLeft = () => {
 rightBtn.addEventListener("click", moveRight);
 leftBtn.addEventListener("click", moveLeft);
 
+let closeButton = document.querySelector('.close').closest('.alert');
+closeButton.addEventListener('click', closeFlash())
+
+function closeFlash() {
+    console.log("ok");
+}
+
 
