@@ -5,6 +5,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      @auth
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -15,7 +16,6 @@
           </li>
         </ul>
       </div>
-      @auth
         <a class="btn btn-info m-3 " href="{{route('create')}}">Ajout d'une nouvelle annonce</a>
         <a class="btn btn-danger" href="{{route('logout')}}">Déconnexion</a>
       @endauth

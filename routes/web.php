@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 //Home page route
 Route::get('/', [AnnonceController::class, 'browse'])->name('browse');
+Route::get('/home', [AnnonceController::class, 'browse'])->name('home');
 
 //Routes for the CRUD
 Route::prefix('annonce/')->group(function(){
