@@ -25,6 +25,7 @@ class AgentController extends Controller
     public function agentDetail($id)
     {
         $annonces = Annonce::where('agent_id', $id)->get();
+        //if i have nothing in $annonces i redirect to error page
         if (count($annonces) === 0) {
             $message = "Cet agent n'a encore aucune annonce";
             return redirect()->route('error', [$message]);
@@ -42,6 +43,7 @@ class AgentController extends Controller
     public function agentList()
     {
         $agents = Agent::all();
+        //if i have nothing in $agents i redirect to error page
         if (count($agents) === 0) {
             $message = "Nous n'avons pas encore d'agents";
             return redirect()->route('error', [$message]);
