@@ -56,7 +56,7 @@ La table AGENT comportera les éléments suivants =
 Pour démarrer ce projet il faut =
 - Cloner ce projet
 - Lancer la commande ` composer install`
-- Créer un fichier `.env` et saisir vos informations de base de donnée (pour `DB_USERNAME` `DB_PASSWORD`)
+- Créer un fichier `.env` et saisir vos informations de base de donnée (pour `DB_USERNAME` `DB_PASSWORD`), se créér une table dans son adminer et saisir le nom de cette table à la ligne `DB_DATABASE` du fichier `.env`
 - Verifier que dans le fichier `.env` , le `APP_ENV` est en local
 - Lancer la commande `php artisan migrate`
 - Importer le fichier sql dans votre adminer
