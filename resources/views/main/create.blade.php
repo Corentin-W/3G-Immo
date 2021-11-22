@@ -22,15 +22,15 @@
             </div>
             <div class="form-group mt-3">
                 <label for="prix_annonce">Prix en Euros</label>
-                <input type="number" step="0.01"  max= "999999" class="form-control"  placeholder="400000" name="prix_annonce">
+                <input type="number" step="0.01"   class="form-control"  placeholder="400000" name="prix_annonce">
             </div>
             <div class="form-group mt-3">
             <label for="surface_habitable">Surface habitable en m2</label>
-            <input type="number" step="0.01" class="form-control" max= "999999" placeholder="127" name="surface_habitable">
+            <input type="number" step="0.01" class="form-control"  placeholder="127" name="surface_habitable">
             </div>
             <div class="form-group mt-3">
                 <label for="nombre_de_piece">Nombre de pièces</label>
-                <input type="number" class="form-control" max= "99999" placeholder="5" name="nombre_de_piece">
+                <input type="number" class="form-control"  placeholder="5" name="nombre_de_piece">
             </div>
             <div class="form-group mt-3">
                 <label for="agent">Agent</label>
