@@ -54,8 +54,10 @@
                         <p class="card-text"> {{$annonce->nombre_de_piece}} pièces</p>
                         <p class="card-text">Agent: <a href="{{route('agent-detail', $annonce->agent->id)}}">{{$annonce->agent->prenom_agent}} {{$annonce->agent->nom_agent}}</a></p>
                         <a href="{{route('read', $annonce->id)}}" class="btn btn-primary">Voir</a>
+                        @auth
                         <a href="{{route('edit', $annonce->id)}}" class="btn btn-success">Editer</a>
                         <a href="{{route('delete', $annonce->id)}}" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?');">Supprimer</a>
+                        @endauth
                     </div>
                 </div>
             </div>

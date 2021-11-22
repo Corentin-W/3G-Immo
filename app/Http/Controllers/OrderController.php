@@ -7,13 +7,12 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
-     * Order date by parameter
+     * Order by date
+     * @param $order
+     *
+     * @return Illuminate\View\View
      */
     public function orderDate($order)
     {
@@ -24,7 +23,10 @@ class OrderController extends Controller
     }
 
     /**
-     * Order price by parameter
+     * Order by price
+     * @param $order
+     *
+     * @return Illuminate\View\View
      */
     public function orderPrice($order)
     {
@@ -35,7 +37,10 @@ class OrderController extends Controller
     }
 
     /**
-     * Order surface by parameter
+     * Order by surface
+     * @param $order
+     *
+     * @return Illuminate\View\View
      */
     public function orderSurface($order)
     {
@@ -46,7 +51,10 @@ class OrderController extends Controller
     }
 
     /**
-     * Order rooms by parameter
+     * Order by number of rooms
+     * @param $order
+     *
+     * @return Illuminate\View\View
      */
     public function orderRooms($order)
     {
