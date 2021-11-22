@@ -9,29 +9,53 @@ use Illuminate\Http\Request;
 class AnnonceController extends Controller
 {
     /**
-     * Undocumented function
+     * I can use theses methods only if i'm logged in
      */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    /**
+     * List all ads with pagination (8 perpage)
+     *
+     * @return Illuminate\View\View
+     */
     public function browse()
     {
         $annonces = Annonce::orderBy("created_at", "asc")->paginate(8);
+        if (count($annonces) === 0) {
+            $message = "Aucune annonce à ce jour";
+            return redirect()->route('error', [$message]);
+        }
         return view('main.home', [
             'annonces' => $annonces
         ]);
     }
 
+    /**
+     * Detail page
+     * @param $id
+     *
+     * @return Illuminate\View\View
+     */
     public function read($id)
     {
         $annonce = Annonce::find($id);
+        if (is_null($annonce)){
+            $message = "Cette annonce n'existe pas";
+            return redirect()->route('error', [$message]);
+        }
         return view('main.read', [
             'annonce' => $annonce
         ]);
     }
 
+    /**
+     * Create page
+     *
+     * @return Illuminate\View\View
+     */
     public function create()
     {
         $agents = Agent::all();
@@ -40,6 +64,12 @@ class AnnonceController extends Controller
         ]);
     }
 
+    /**
+     * Process to add the new ad in the database
+     * @param Request
+     *
+     * @return Redirect
+     */
     public function add(Request $request)
     {
         $request->validate([
@@ -50,10 +80,6 @@ class AnnonceController extends Controller
             'agent' => ['required']
         ]);
 
-        //I check if the route is still the good one
-        if(!$request->routeIs('add')){
-            return redirect()->route('browse');
-        };
         $annonce = new Annonce();
         $annonce->ref_annonce = $request->input('ref_annonce');
         $annonce->surface_habitable = $request->input('surface_habitable');
@@ -65,9 +91,19 @@ class AnnonceController extends Controller
         return redirect()->route('browse')->with('success','Annonce ajoutée');
     }
 
+    /**
+     * Edit page
+     * @param $id
+     *
+     * @return Illuminate\View\View
+     */
     public function edit($id)
     {
         $annonce = Annonce::find($id);
+        if (is_null($annonce)){
+            $message = "Cette annonce n'existe pas";
+            return redirect()->route('error', [$message]);
+        }
         $agentId = $annonce->agent_id;
         $agentOwner = Agent::find($agentId);
         $agents = Agent::all();
@@ -78,6 +114,13 @@ class AnnonceController extends Controller
         ]);
     }
 
+    /**
+     * Process to edit the page in the database
+     * @param $id
+     * @param Request
+     *
+     * @return Redirect
+     */
     public function update($id, Request $request)
     {
         $request->validate([
@@ -97,10 +140,32 @@ class AnnonceController extends Controller
         return redirect()->route('browse')->with('success','Annonce éditée');
     }
 
+    /**
+     * Process to edit the page in the database
+     * @param $id
+     *
+     * @return Illuminate\View\View
+     */
     public function delete($id)
     {
         $annonceToDelete = Annonce::findOrFail($id);
+        if (is_null($annonceToDelete)){
+            $message = "Cette annonce n'existe pas";
+            return redirect()->route('error', [$message]);
+        }
         $annonceToDelete->delete();
         return back()->with('success','Annonce supprimée');
+    }
+
+    /**
+     * Display error page
+     *
+     * @return Illuminate\View\View
+     */
+    public function error($message)
+    {
+        return view('main.error', [
+            'message' => $message
+        ]);
     }
 }

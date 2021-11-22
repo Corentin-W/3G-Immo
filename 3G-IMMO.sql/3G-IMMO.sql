@@ -144,11 +144,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1,	'Corentin',	'corentin.waucampt@gmail.com',	NULL,	'$2y$10$K5a4ig/tzPmVNoSDhipNjOnsN6ExrGXvx3DvYkOut6NI4brD49ehK',	'gxqvBuirC9x3NNTs7F10s6Z3eLxxd93lgE1dKPSl7S93lfgCQmB0mlp66eyZ',	'2021-11-20 10:29:02',	'2021-11-20 10:29:02'),
-(2,	'Durand',	'durand@durandtest.fr',	NULL,	'$2y$10$KSUHFQlU0bqqlOuc910gseZkrl58dM1qT/Tte58L08YJpsZHVdgRa',	NULL,	'2021-11-21 12:37:07',	'2021-11-21 12:37:07'),
-(3,	'test',	'test@test.fr',	NULL,	'$2y$10$HMNYvssWeu8I/OvtVDTCN.j9AdA9r9AJEFO8eF4N/wH5C2.g8jfyy',	NULL,	'2021-11-21 12:38:27',	'2021-11-21 12:38:27'),
-(4,	'test',	'test@testtest.fr',	NULL,	'$2y$10$tlYQtu5wBJepAp5r6SUtwuAC0HWev1kqpaWK/JkBCaZJJWcvoNOhO',	NULL,	'2021-11-21 12:39:15',	'2021-11-21 12:39:15'),
-(5,	'test',	'test@test.test',	NULL,	'$2y$10$Gu7i2wOVhYBmdkp4erbYQ.hP1cTQH1SA3LgDVFpLNPDAszcu8odvq',	NULL,	'2021-11-21 12:40:56',	'2021-11-21 12:40:56'),
-(6,	'test1',	'test1@test.fr',	NULL,	'$2y$10$VSPRNf8NE8ZPX.3.iT0d0.oJOBOs/w7/fXQE7v8TF2gEX35F9SqBy',	NULL,	'2021-11-21 12:41:40',	'2021-11-21 12:41:40');
+(1,	'Corentin',	'corentin.waucampt@gmail.com',	NULL,	'$2y$10$K5a4ig/tzPmVNoSDhipNjOnsN6ExrGXvx3DvYkOut6NI4brD49ehK',	'BdgbfPBAtR9zkB12AS1JG5TH1qgnI5Y5ZqvEBVYMQTMltRanCogyWISMhEgn',	'2021-11-20 10:29:02',	'2021-11-20 10:29:02'),
+(2,	'Durand',	'durand@durandtest.fr',	NULL,	'$2y$10$KSUHFQlU0bqqlOuc910gseZkrl58dM1qT/Tte58L08YJpsZHVdgRa',	NULL,	'2021-11-21 12:37:07',	'2021-11-21 12:37:07');
 
--- 2021-11-22 08:33:31
+-- 2021-11-22 09:07:42

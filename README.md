@@ -10,6 +10,11 @@ L'objectif, est d'obtenir un site avec comme fonctionnalités =
 - La création d'une annonce
 - La suppression d'une annonce
 
+## Fonctionnement
+
+Il est possible sans se connecter de visualiser les annonces ainsi que de les trier. 
+En revanche pour éditer, supprimer une annonce, ou encore voir la liste des agents et leurs annonces il faudra se connecter.
+
 ## Annonces immobilières
 
 Chaque annonce doit comporter =
@@ -28,7 +33,7 @@ La table ANNONCE comportera les éléments suivants =
 - surface_habitable (float)
 - nombre_de_piece (int)
 
-La table AGENT compotera les éléments suivants = 
+La table AGENT comportera les éléments suivants = 
 - nom_agent (varchar)
 - prenom_agent (varchar)
   

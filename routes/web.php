@@ -17,12 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Home page route
-Route::get('/', [AnnonceController::class, 'browse'])->name('browse');
-Route::get('/home', [AnnonceController::class, 'browse'])->name('home');
+Route::get('/', [AnnonceController::class, 'browse'])->withoutMiddleware('auth')->name('browse');
+Route::get('/home', [AnnonceController::class, 'browse'])->withoutMiddleware('auth')->name('home');
+Route::get('/error/{message}', [AnnonceController::class, 'error'])->withoutMiddleware('auth')->name('error');
 
 //Routes for the CRUD
 Route::prefix('annonce/')->group(function(){
-    Route::get('read/{id}', [AnnonceController::class, 'read'])->name('read');
+    Route::get('read/{id}', [AnnonceController::class, 'read'])->withoutMiddleware('auth')->name('read');
     Route::get('create', [AnnonceController::class, 'create'])->name('create');
     Route::post('create', [AnnonceController::class, 'add'])->name('add');
     Route::get('edit/{id}', [AnnonceController::class, 'edit'])->name('edit');
