@@ -1,6 +1,7 @@
 @extends('base')
 @section('content')
 
+<div class="container mt-4">
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
@@ -26,7 +27,7 @@
             @endforeach
         </tbody>
     </table>
-
+</div>
 
 
 @endsection

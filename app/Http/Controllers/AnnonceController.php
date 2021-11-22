@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class AnnonceController extends Controller
 {
+    /**
+     * Undocumented function
+     */
     public function __construct()
     {
         $this->middleware('auth');
