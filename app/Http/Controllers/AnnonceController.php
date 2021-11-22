@@ -24,6 +24,7 @@ class AnnonceController extends Controller
     public function browse()
     {
         $annonces = Annonce::orderBy("created_at", "asc")->paginate(8);
+        //if i have nothing in $annonces i redirect to error page
         if (count($annonces) === 0) {
             $message = "Aucune annonce à ce jour";
             return redirect()->route('error', [$message]);
@@ -42,6 +43,7 @@ class AnnonceController extends Controller
     public function read($id)
     {
         $annonce = Annonce::find($id);
+        //if i have nothing in $annonce i redirect to error page
         if (is_null($annonce)){
             $message = "Cette annonce n'existe pas";
             return redirect()->route('error', [$message]);
@@ -72,6 +74,7 @@ class AnnonceController extends Controller
      */
     public function add(Request $request)
     {
+        // i check if i have all the fields set
         $request->validate([
             'ref_annonce' => ['required','min:8','max:8','unique:annonces'],
             'prix_annonce' => ['required'],
@@ -100,6 +103,7 @@ class AnnonceController extends Controller
     public function edit($id)
     {
         $annonce = Annonce::find($id);
+        //if i have nothing in $annonce i redirect to error page
         if (is_null($annonce)){
             $message = "Cette annonce n'existe pas";
             return redirect()->route('error', [$message]);
@@ -123,6 +127,7 @@ class AnnonceController extends Controller
      */
     public function update($id, Request $request)
     {
+        // i check if i have all the fields se
         $request->validate([
             'ref_annonce' => ['required','min:8','max:8'],
             'prix_annonce' => ['required'],
@@ -149,6 +154,7 @@ class AnnonceController extends Controller
     public function delete($id)
     {
         $annonceToDelete = Annonce::findOrFail($id);
+        //if i have nothing in $annonceToDelete i redirect to error page
         if (is_null($annonceToDelete)){
             $message = "Cette annonce n'existe pas";
             return redirect()->route('error', [$message]);
